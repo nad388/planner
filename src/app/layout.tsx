@@ -1,22 +1,30 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import { Zen_Kaku_Gothic_Antique } from 'next/font/google'
+import './globals.scss'
 
-const inter = Inter({ subsets: ['latin'] })
+// noto sans
+
+const zen = Zen_Kaku_Gothic_Antique({
+	subsets: ['cyrillic', 'latin'],
+	weight: ['400', '700'],
+	display: 'swap',
+	variable: '--font-zen',
+	style: ['normal']
+})
 
 export const metadata: Metadata = {
 	title: 'Planner',
-	description: 'The best planner',
+	description: 'The best planner'
 }
 
 export default function RootLayout({
-	children,
+	children
 }: {
 	children: React.ReactNode
 }) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>{children}</body>
+			<body className={zen.className}>{children}</body>
 		</html>
 	)
 }
